@@ -30,10 +30,13 @@ Later in the same day I was reading an article with some code sample in
 Java and there I could see the annotation ``@Overrides``. Immediately I
 thought:
 
-> "OH, wait! I could use something like that in Python to mark safe
-> overrides. Additionally, I could create a plugin to pylint to look
-> for overridden methods if they were implemented consciously
-> (explicitly marked as a override) or not.
+::
+
+    "OH, wait! I could use something like that in Python to mark safe
+    overrides. Additionally, I could create a plugin to pylint to look
+    for overridden methods if they were implemented consciously
+    (explicitly marked as a override) or not.
+
 
 The result is this small "oops-overrides" pylint checker.
 
@@ -66,6 +69,7 @@ properly marked as a safe override.
 .. code-block:: python
 
     from unittest.mock import MagicMock
+
 
     class MyNaiveOverride(MagicMock):
         def assert_any_call(self, *args, **kwargs):
