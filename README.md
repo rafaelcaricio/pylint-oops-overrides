@@ -33,9 +33,9 @@ thought:
 The result is this small "oops-overrides" pylint checker.
 
 ## How it works?
-The `oops-overrides-checker` checks if all methods overridden from
-classes defined in external libraries in your code have a decorator
-called "overrides". Example:
+The `oops-overrides-checker` looks for all methods you override from
+external libraries and verify if they have a decorator called
+"overrides".
 
 ``` python
 from unittest.mock import MagicMock
@@ -50,3 +50,31 @@ class MyConsciousOverride(MagicMock):
         """
         print('conscious override!')
 ```
+
+The example above will not generate any errors from
+`oops-overrides-checker` since the method `assert_any_call` is
+properly marked as a safe override.
+
+``` python
+class MyNaiveOverride(MagicMock):
+    def assert_any_call(self, *args, **kwargs):
+        """
+        Overrides without any marker.
+        """
+        print('Naive override')
+```
+
+In this second example `oops-overrides-checker` will display an error output like:
+
+``` shell
+$ pylint -E --load-plugins oops_overrides_checker tests/fixtures/my_naive_code.py
+************* Module my_naive_code
+E: 11, 4: Method MyNaiveOverride.assert_any_call is not marked as a safe override. (oops-non-safe-override)
+```
+
+That way you know where potential problems may happen. In case you
+override by mistake some internal methods of the frameworks/libraries
+you use.
+
+We recommend you to use `oops-overrides-checker` in you CI system and
+continously watch out for potential overseen method overrides.
