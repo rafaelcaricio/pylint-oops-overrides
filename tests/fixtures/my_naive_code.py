@@ -29,14 +29,14 @@ class MyNaiveOverride(MagicMock):
         pass
 
 
-class MyCoscienteOverride(MagicMock):
+class MyConsciousOverride(MagicMock):
     @overrides
     def assert_any_call(self, *args, **kwargs):
         """
-        This one should not show any error since I marked it as a save
+        This one should not show any error since I marked it as a safe
         override.
         """
-        print('consciente override!')
+        print('conscious override!')
 
     def new_method(self):
         pass
@@ -50,8 +50,8 @@ def main():
     naive = MyNaiveOverride()
     naive.assert_any_call()
 
-    cosciente = MyCoscienteOverride()
-    cosciente.assert_any_call()
+    conscious = MyConsciousOverride()
+    conscious.assert_any_call()
 
 
 if __name__ == '__main__':
