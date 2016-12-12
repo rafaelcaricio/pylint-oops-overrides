@@ -26,9 +26,9 @@ Java and there I could see the annotation `@Overrides`. Immediately I
 thought:
 
 > "OH, wait! I could use something like that in Python to mark safe
-> overrides. Additionally, I could create a plugin to pylint to check
-> overridden methods if they were implemented consciously (explicitly
-> marked as a override) or not.
+> overrides. Additionally, I could create a plugin to pylint to look
+> for overridden methods if they were implemented consciously
+> (explicitly marked as a override) or not.
 
 The result is this small "oops-overrides" pylint checker.
 
