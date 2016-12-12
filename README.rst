@@ -3,8 +3,8 @@ pylint-oops-overrides
 
 Avoid non-expected method overrides in your Python code.
 
-The problem?
-------------
+The problem
+-----------
 
 Codebases grows and new features are always waiting to be added. In
 certain situations you need to extend some class of the framework you
