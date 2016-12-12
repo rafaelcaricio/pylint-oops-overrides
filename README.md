@@ -84,5 +84,5 @@ continously watch out for potential overseen method overrides.
 You might use `oops-overrides-checker` pylint plugin in conjunction
 with [`overrides`](https://github.com/mkorpela/overrides). Overrides
 is a decorator to automatically detect mismatch when overriding a
-methods. It executes in runtime with your code and checks if your
+method. It executes in runtime with your code and checks if your
 implementation is compliant with the original method definition.
