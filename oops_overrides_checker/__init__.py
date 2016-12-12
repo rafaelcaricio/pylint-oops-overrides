@@ -1,7 +1,12 @@
-from pylint.checkers import BaseChecker, utils
-from pylint.interfaces import IAstroidChecker
+"""Check for non-expected method overrides in your Python code."""
+
 import importlib
 import inspect
+
+from pylint.checkers import BaseChecker, utils
+from pylint.interfaces import IAstroidChecker
+
+__version__ = '0.0.1'
 
 
 class MethodOverridesChecker(BaseChecker):
