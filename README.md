@@ -72,9 +72,17 @@ $ pylint -E --load-plugins oops_overrides_checker tests/fixtures/my_naive_code.p
 E: 11, 4: Method MyNaiveOverride.assert_any_call is not marked as a safe override. (oops-non-safe-override)
 ```
 
-That way you know where potential problems may happen. In case you
-override by mistake some internal methods of the frameworks/libraries
-you use.
+In case you override by mistake some internal methods of the
+frameworks/libraries you use you know where potential errors might
+exist.
 
+## Where to use?
 We recommend you to use `oops-overrides-checker` in you CI system and
 continously watch out for potential overseen method overrides.
+
+## Possible integrations
+You might use `oops-overrides-checker` pylint plugin in conjunction
+with [`overrides`](https://github.com/mkorpela/overrides). Overrides
+is a decorator to automatically detect mismatch when overriding a
+methods. It executes in runtime with your code and checks if your
+implementation is compliant with the original method definition.
